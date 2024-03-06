@@ -56,23 +56,25 @@ print(type(X), type(y))
 
 from sklearn.model_selection import train_test_split
 
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 
+
 """Linear Regression"""
+
 
 from sklearn.linear_model import LinearRegression
 
+
 model = LinearRegression()
-
 model.fit(X_train, y_train)
-
 y_pred = model.predict(X_test)
+
 
 from sklearn import metrics
 
+
 print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
-
 # You can also use:
-
 print('R2:', np.round(metrics.r2_score(y_test, y_pred), 2))
