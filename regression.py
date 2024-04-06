@@ -10,40 +10,29 @@ Original file is located at
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
-"""Load dataset from scikit-learn"""
-
 from sklearn.datasets import fetch_california_housing
 
 housing = fetch_california_housing()
 
 housing_df = pd.DataFrame(housing.data, columns=housing.feature_names)
 housing_df.head()
-
 housing_df.info()
-
 housing_df.describe()
-
 housing_df.isnull().sum()
 
 """Data Analysis"""
 
 corr_matrix = housing_df.corr().round(2)
 corr_matrix
-
 x1 = housing_df['Longitude']
 x2 = housing_df['Latitude']
 y = housing_df['Population']
-
 plt.figure(figsize=(10, 6))
 plt.scatter(x1, y)
-
 plt.xlabel('Longitude')
 plt.ylabel('Population')
-
 plt.figure(figsize=(10, 6))
 plt.scatter(x2, y)
-
 plt.xlabel('Latitude')
 plt.ylabel('Population')
 
@@ -51,8 +40,8 @@ plt.ylabel('Population')
 
 X = housing_df[['HouseAge', 'AveRooms', 'Population', 'AveOccup', 'Latitude', 'Longitude']]
 y = housing_df['MedInc']
-
 print(type(X), type(y))
+
 
 from sklearn.model_selection import train_test_split
 
@@ -60,9 +49,7 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 
-
 """Linear Regression"""
-
 
 from sklearn.linear_model import LinearRegression
 
